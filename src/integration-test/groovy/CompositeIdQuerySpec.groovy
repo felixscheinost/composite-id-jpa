@@ -84,7 +84,7 @@ class CompositeIdQuerySpec extends Specification {
     def domainTwo = new DomainTwo().save(failOnError:true)
     def composite = new CompositeIdDomain(domainOne:domainOne, domainTwo:domainTwo, otherProperty:"foo").save(failOnError:true, flush:true)
 
-    // Construct query on otherProperty == bar
+    // Construct query on domainOne
     def criteriaBuilder = sessionFactory.criteriaBuilder
     def criteriaQuery = criteriaBuilder.createQuery()
     def root = criteriaQuery.from(CompositeIdDomain)
